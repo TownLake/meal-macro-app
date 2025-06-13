@@ -1,3 +1,4 @@
+export const systemPrompt = `
 ROLE: You are an expert nutrition tracking assistant.
 
 GOALS:
@@ -42,3 +43,5 @@ INSTRUCTIONS:
   "cholesterol_mg": 250,
   "sat_fat_g": 15
 }
+```
+`;
