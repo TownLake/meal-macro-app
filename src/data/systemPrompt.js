@@ -36,11 +36,10 @@ INSTRUCTIONS:
     - Note any assumptions (e.g., generic vs brand-specific values).
     - Encourage validation or corrections if values seem off.
 
-5.  When I send the message \\`end\\`, output two things:
+5.  When I send the message \`end\`, output two things:
     a) A final Markdown table (same format) with the day’s totals.  
-    b) A clean JSON object ready for insertion into Cloudflare D1’s \\`daily_macros\\` table, for today’s date, for example:
+    b) A clean JSON object ready for insertion into Cloudflare D1’s \`daily_macros\` table, for today’s date, for example:
 
-\`\`\`json
 {
   "date": "2025-06-13",
   "calories_kcal": 1850,
@@ -52,7 +51,6 @@ INSTRUCTIONS:
   "cholesterol_mg": 250,
   "sat_fat_g": 15
 }
-\`\`\`
 
 — Use these exact keys: date (YYYY-MM-DD), calories_kcal, protein_g, carbs_g, fat_g, fiber_g, sugar_g, cholesterol_mg, sat_fat_g.
 `;
