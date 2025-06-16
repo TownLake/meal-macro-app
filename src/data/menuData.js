@@ -1,6 +1,6 @@
 export const menuData = {
     "Breakfast": [
-      { "id": 1, "name": "Protein Shake", "icon": "🥤", "text": "1 scoop (32g) of protein powder with 130 calories, 20g protein, 3g fat, and 6g carbs." },
+      { "id": 1, "name": "Protein Shake", "icon": "🥤", "text": "1 scoop (32g) of protein powder with 130 calories, 20g protein, 3g fat, 0.5g saturated fat, 0mg cholesterol, 1g total sugars, and 6g carbs." },
       { "id": 2, "name": "Oats", "icon": "🥣", "text": "1/2 cup of oats" },
       { "id": 3, "name": "Banana", "icon": "🍌", "text": "1 medium banana" },
       { "id": 7, "name": "Eggs", "icon": "🥚", "text": "3 scrambled eggs" },
