@@ -53,7 +53,6 @@ INSTRUCTIONS
    a) A final Markdown table titled **“Final Cumulative Totals”** (same columns/emojis).  
    b) A clean JSON object ready for Cloudflare D1’s `daily_macros` table, e.g.:
 
-```json
 {
   "date": "2025-06-13",
   "calories_kcal": 1850,
@@ -65,7 +64,6 @@ INSTRUCTIONS
   "cholesterol_mg": 250,
   "sat_fat_g": 15
 }
-```
 
 — Use these exact keys: date (YYYY-MM-DD), calories_kcal, protein_g, carbs_g, fat_g, fiber_g, sugar_g, cholesterol_mg, sat_fat_g.
 `;
