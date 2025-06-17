@@ -49,9 +49,9 @@ INSTRUCTIONS
    - Note any assumptions (e.g., generic vs. brand-specific values).  
    - Encourage me to correct numbers if they seem off.
 
-5. **When I send the message `end`, return exactly two things:**  
+5. **When I send the message end, return exactly two things:**  
    a) A final Markdown table titled **“Final Cumulative Totals”** (same columns/emojis).  
-   b) A clean JSON object ready for Cloudflare D1’s `daily_macros` table, e.g.:
+   b) A clean JSON object ready for Cloudflare D1’s daily_macros table, e.g.:
 
 {
   "date": "2025-06-13",
