@@ -2,19 +2,19 @@ export const menuData = {
   "Breakfast": [
     {
       "id": 1,
-      "name": "CalGold Protein Powder",
+      "name": "Protein Powder",
       "icon": "🥤",
       "nutrition": {
-        "calories_kcal": 130,
-        "protein_g": 20,
-        "fat_g": 3,
-        "sat_fat_g": 0.5,
+        "calories_kcal": 94,
+        "protein_g": 17,
+        "fat_g": 2.1,
+        "sat_fat_g": 0.6,
         "cholesterol_mg": 0,
-        "sugar_g": 1,
-        "carbs_g": 6,
-        "fiber_g": 2
+        "sugar_g": 0.1,
+        "carbs_g": 1.3,
+        "fiber_g": 1.2
       },
-      "text": "1 scoop (32g) of protein powder: 130 kcal, 20 g protein, 3 g fat (0.5 g sat fat), 0 mg cholesterol, 1 g total sugars, 6 g carbs, 2 g fiber.",
+      "text": "1 scoop of protein powder: 94 kcal, 17 g protein, 2.1 g fat (0.6 g sat fat), 0 mg cholesterol, 0.1 g sugars, 1.3 g carbs, 1.2 g fiber.",
       "source": "label"
     },
     {
