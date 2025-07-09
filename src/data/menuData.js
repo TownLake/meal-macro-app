@@ -71,7 +71,7 @@ export const menuData = {
     {
       "id": 17,
       "name": "Almond Powder",
-      "icon": "🌰",
+      "icon": "💨",
       "nutrition": {
         "calories_kcal": 114,
         "protein_g": 4.1,
