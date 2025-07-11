@@ -152,6 +152,40 @@ export const menuData = {
       },
       "text": "100 g Bio Skyr Magro Baunilha: 87 kcal, 0.2 g fat (0.1 g sat fat), 11.7 g carbs (11.7 g sugars), 9.5 g protein.",
       "source": "label"
+    },
+    {
+      "id": 27,
+      "name": "Continente Skyr",
+      "icon": "🥣",
+      "nutrition": {
+        "calories_kcal": 58,
+        "protein_g": 13,
+        "fat_g": 0,
+        "sat_fat_g": 0,
+        "cholesterol_mg": 0,
+        "sugar_g": 3.7,
+        "carbs_g": 3.7,
+        "fiber_g": 0
+      },
+      "text": "100 g Continente Skyr: 58 kcal, 13 g protein, 0 g fat (0 g sat fat), 0 mg cholesterol, 3.7 g sugars, 3.7 g carbs, 0 g fiber. Contains naturally occurring sugars.",
+      "source": "label"
+    },
+    {
+      "id": 28,
+      "name": "Continente Banana Protein Yogurt",
+      "icon": "🍌",
+      "nutrition": {
+        "calories_kcal": 51,
+        "protein_g": 11,
+        "fat_g": 0,
+        "sat_fat_g": 0,
+        "cholesterol_mg": 0,
+        "sugar_g": 7.4,
+        "carbs_g": 7.4,
+        "fiber_g": 0
+      },
+      "text": "100 g Continente Banana Protein Yogurt: 51 kcal, 11 g protein, 0 g fat (0 g sat fat), 0 mg cholesterol, 7.4 g sugars, 7.4 g carbs, 0 g fiber. Contains naturally occurring sugars.",
+      "source": "label"
     }
   ],
   "Lunch": [
