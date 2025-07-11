@@ -36,7 +36,7 @@ export const menuData = {
     },
     {
       "id": 13,
-      "name": "Vanilla Yogurt",
+      "name": "French Glass Vanilla",
       "icon": "🍨",
       "nutrition": {
         "calories_kcal": 140,
@@ -155,7 +155,7 @@ export const menuData = {
     },
     {
       "id": 27,
-      "name": "Continente Skyr",
+      "name": "Continente Plain Skyr",
       "icon": "🥣",
       "nutrition": {
         "calories_kcal": 58,
@@ -172,7 +172,7 @@ export const menuData = {
     },
     {
       "id": 28,
-      "name": "Continente Banana Protein Yogurt",
+      "name": "Continente Protein Yogurt",
       "icon": "🍌",
       "nutrition": {
         "calories_kcal": 51,
