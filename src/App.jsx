@@ -13,7 +13,6 @@ export default function App() {
   const [copied, setCopied] = useState(false);
   const [openSections, setOpenSections] = useState({ Breakfast: true });
 
-  // Calculate running totals
   const totals = selectedItems.reduce((acc, item) => {
     if (item.nutrition) {
       Object.entries(item.nutrition).forEach(([key, val]) => {
@@ -23,13 +22,9 @@ export default function App() {
     return acc;
   }, {});
 
-  // This effect runs whenever the selection or modes change to update the output
   useEffect(() => {
     if (isJsonMode) {
-      // --- Rounding function ---
       const roundToOneDecimal = (num) => Math.round((num || 0) * 10) / 10;
-
-      // If in JSON mode, generate and set the JSON string with rounded numbers
       const today = new Date().toISOString().slice(0, 10);
       const jsonData = {
         date: today,
@@ -44,16 +39,13 @@ export default function App() {
       };
       setGeneratedText(JSON.stringify(jsonData, null, 2));
     } else {
-      // If not in JSON mode, build the prompt text
       let text = '';
       if (includeSystemPrompt) text += systemPrompt.trim() + '\n\n';
-
       const groupedByMeal = Object.keys(menuData).reduce((acc, meal) => {
         const itemsInMeal = selectedItems.filter(si => menuData[meal].some(mi => mi.id === si.id));
         if (itemsInMeal.length) acc[meal] = itemsInMeal;
         return acc;
       }, {});
-
       const mealTexts = Object.entries(groupedByMeal).map(([meal, items]) =>
         `${meal}:\n${items.map(item => item.text).join('\n')}`
       );
@@ -61,31 +53,27 @@ export default function App() {
     }
   }, [selectedItems, includeSystemPrompt, isJsonMode, totals]);
 
-  // Toggle a food item
   const toggleItem = item => {
     setSelectedItems(prev =>
       prev.some(i => i.id === item.id) ? prev.filter(i => i.id !== item.id) : [...prev, item]
     );
   };
 
-  // Toggle the system prompt on/off (this disables JSON mode)
   const toggleSystemPrompt = () => {
-    if (!includeSystemPrompt) setIsJsonMode(false); // Deactivate JSON mode if activating prompt
+    if (!includeSystemPrompt) setIsJsonMode(false);
     setIncludeSystemPrompt(prev => !prev);
-  }
-
-  // Toggle JSON mode on/off
-  const handleJsonToggle = () => {
-    const newJsonMode = !isJsonMode;
-    setIsJsonMode(newJsonMode);
-    if (newJsonMode) setIncludeSystemPrompt(false); // Deactivate prompt mode if activating JSON
   };
 
-  // Handle copying text to clipboard
+  const handleJsonToggle = () => {
+    const next = !isJsonMode;
+    setIsJsonMode(next);
+    if (next) setIncludeSystemPrompt(false);
+  };
+
   const handleCopy = () => {
     navigator.clipboard.writeText(generatedText).then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
     });
   };
 
@@ -94,42 +82,58 @@ export default function App() {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen font-sans text-gray-200 flex flex-col items-center p-4 sm:p-6 md:p-8">
+    <div className="bg-gray-900 min-h-dvh font-sans text-gray-200 flex flex-col items-center px-4 sm:px-6 pb-safe">
       <div className="w-full max-w-2xl mx-auto">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white">Macro Prompt Builder</h1>
-          <p className="text-gray-400 mt-2">Select meals, then generate a prompt or a JSON summary.</p>
+        <header className="text-center pt-6 pb-2">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs text-gray-300">
+            Macro
+            <span className="h-1 w-1 rounded-full bg-gray-500" />
+            Prompt Builder
+          </div>
         </header>
 
         <TotalsCard totals={totals} />
 
-        {/* --- Control Buttons Row --- */}
-        <div className="flex gap-4 mb-8">
-          {/* System Prompt Button */}
-          <button
-            onClick={toggleSystemPrompt}
-            className={`flex-1 flex items-center justify-center text-center p-4 rounded-xl transition-all duration-300 transform ${includeSystemPrompt ? 'bg-indigo-600 text-white shadow-lg scale-105' : 'bg-gray-800 shadow-md hover:bg-gray-700'}`}
-          >
-            <h2 className="font-bold text-lg">System Prompt</h2>
-            <div className={`ml-3 w-7 h-7 rounded-full flex items-center justify-center text-sm ${includeSystemPrompt ? 'bg-white text-indigo-600' : 'bg-gray-600 text-gray-300'}`}>
-              {includeSystemPrompt ? <Check size={18} /> : <Plus size={18} />}
-            </div>
-          </button>
-          
-          {/* Generate JSON Button */}
-          <button
-            onClick={handleJsonToggle}
-            className={`flex-1 flex items-center justify-center text-center p-4 rounded-xl transition-all duration-300 transform ${isJsonMode ? 'bg-teal-600 text-white shadow-lg scale-105' : 'bg-gray-800 shadow-md hover:bg-gray-700'}`}
-          >
-            <h2 className="font-bold text-lg">Generate JSON</h2>
-            <div className={`ml-3 w-7 h-7 rounded-full flex items-center justify-center ${isJsonMode ? 'bg-white text-teal-600' : 'bg-gray-600 text-gray-300'}`}>
-              <Code size={18} />
-            </div>
-          </button>
+        <div className="mb-6">
+          <div className="grid grid-cols-2 gap-2 rounded-2xl bg-gray-800/60 p-1 backdrop-blur">
+            <button
+              onClick={toggleSystemPrompt}
+              aria-pressed={includeSystemPrompt}
+              className={[
+                'flex items-center justify-center rounded-xl py-3 text-sm font-semibold transition-all touch-manipulation',
+                includeSystemPrompt
+                  ? 'bg-indigo-600 text-white shadow ring-1 ring-white/10'
+                  : 'bg-transparent text-gray-300 hover:bg-white/5'
+              ].join(' ')}
+            >
+              <span className="inline-flex items-center">
+                <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
+                  {includeSystemPrompt ? <Check size={18} /> : <Plus size={18} />}
+                </span>
+                System Prompt
+              </span>
+            </button>
+            <button
+              onClick={handleJsonToggle}
+              aria-pressed={isJsonMode}
+              className={[
+                'flex items-center justify-center rounded-xl py-3 text-sm font-semibold transition-all touch-manipulation',
+                isJsonMode
+                  ? 'bg-teal-600 text-white shadow ring-1 ring-white/10'
+                  : 'bg-transparent text-gray-300 hover:bg-white/5'
+              ].join(' ')}
+            >
+              <span className="inline-flex items-center">
+                <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
+                  <Code size={18} />
+                </span>
+                Generate JSON
+              </span>
+            </button>
+          </div>
         </div>
 
-        {/* --- Meal Sections --- */}
-        <div className="mb-8">
+        <div className="mb-6 space-y-3">
           {Object.entries(menuData).map(([meal, items]) => (
             <MealSection
               key={meal}
@@ -143,21 +147,38 @@ export default function App() {
           ))}
         </div>
 
-        {/* --- Output Box --- */}
         {generatedText && (
-          <div className="bg-gray-800 rounded-xl shadow-lg">
-            <div className="flex justify-between items-center p-4">
-              <h3 className="font-bold text-lg text-gray-200">{isJsonMode ? 'Generated JSON:' : 'Your Prompt:'}</h3>
+          <div className="bg-gray-800 rounded-2xl shadow-xl border border-white/10 overflow-hidden">
+            <div className="sticky top-0 z-10 flex items-center justify-between p-3 sm:p-4 bg-gray-800/80 backdrop-blur">
+              <h3 className="font-semibold text-base text-gray-100">{isJsonMode ? 'Generated JSON' : 'Your Prompt'}</h3>
               <button
                 onClick={handleCopy}
-                className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-3 rounded-lg flex items-center transition-transform transform hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-xl bg-indigo-500 px-3 py-2 text-sm font-semibold text-white transition active:scale-[0.98] hover:bg-indigo-600"
               >
-                {copied ? <Check size={18} className="mr-1" /> : <Clipboard size={18} className="mr-1" />}
-                {copied ? 'Copied!' : 'Copy'}
+                {copied ? <Check size={18} /> : <Clipboard size={18} />}
+                {copied ? 'Copied' : 'Copy'}
               </button>
             </div>
-            <div className="px-4 pb-4">
-              <pre className="whitespace-pre-wrap text-gray-300 text-sm bg-gray-900 p-4 rounded-lg">{generatedText}</pre>
+            <div className="px-3 sm:px-4 pb-4">
+              <pre className="whitespace-pre-wrap text-gray-200 text-sm bg-gray-900 rounded-xl p-3 sm:p-4 max-h-[44vh] overflow-y-auto leading-relaxed">
+                {generatedText}
+              </pre>
+            </div>
+          </div>
+        )}
+
+        {generatedText && (
+          <div className="fixed inset-x-0 bottom-0 z-30 mx-auto w-full max-w-2xl px-4 pb-safe">
+            <div className="mb-3 rounded-2xl bg-gray-800/80 backdrop-blur border border-white/10 shadow-lg">
+              <div className="p-2">
+                <button
+                  onClick={handleCopy}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 text-base font-semibold text-white active:scale-[0.99]"
+                >
+                  {copied ? <Check size={20} /> : <Clipboard size={20} />}
+                  {copied ? 'Copied' : 'Copy to Clipboard'}
+                </button>
+              </div>
             </div>
           </div>
         )}

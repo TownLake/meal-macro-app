@@ -19,19 +19,19 @@ export const menuData = {
     },
     {
       "id": 12,
-      "name": "Andechser Natur",
+      "name": "Goat Kefir (plain, 100 g)",
       "icon": "🥛",
       "nutrition": {
-        "calories_kcal": 36,
-        "protein_g": 4.9,
-        "fat_g": 0.1,
-        "sat_fat_g": 0.1,
-        "cholesterol_mg": 0,
-        "sugar_g": 3.8,
-        "carbs_g": 3.8,
+        "calories_kcal": 66,
+        "protein_g": 3.4,
+        "fat_g": 4.4,
+        "sat_fat_g": 2.9,
+        "cholesterol_mg": 12,
+        "sugar_g": 3.6,
+        "carbs_g": 3.6,
         "fiber_g": 0
       },
-      "text": "100 g plain Bio-Joghurt (0.1 % Fett): 36 kcal, 0.1 g fat (<0.1 g sat fat), 3.8 g carbs (3.8 g sugars), 4.9 g protein, 0.18 g salt, 180 mg calcium.",
+      "text": "100 g plain goat kefir (≈4.4% fat): ~66 kcal, 3.4 g protein, 4.4 g fat (2.9 g sat fat), 3.6 g carbs (3.6 g sugars), ~12 mg cholesterol.",
       "source": "label"
     },
     {
@@ -137,54 +137,20 @@ export const menuData = {
       "source": "label"
     },
     {
-      "id": 26,
-      "name": "Bio Skyr Baunilha",
-      "icon": "🥣",
-      "nutrition": {
-        "calories_kcal": 87,
-        "protein_g": 9.5,
-        "fat_g": 0.2,
-        "sat_fat_g": 0.1,
-        "cholesterol_mg": 0,
-        "sugar_g": 11.7,
-        "carbs_g": 11.7,
-        "fiber_g": 0
-      },
-      "text": "100 g Bio Skyr Magro Baunilha: 87 kcal, 0.2 g fat (0.1 g sat fat), 11.7 g carbs (11.7 g sugars), 9.5 g protein.",
-      "source": "label"
-    },
-    {
-      "id": 27,
-      "name": "Continente Plain Skyr",
-      "icon": "🥣",
-      "nutrition": {
-        "calories_kcal": 58,
-        "protein_g": 13,
-        "fat_g": 0,
-        "sat_fat_g": 0,
-        "cholesterol_mg": 0,
-        "sugar_g": 3.7,
-        "carbs_g": 3.7,
-        "fiber_g": 0
-      },
-      "text": "100 g Continente Skyr: 58 kcal, 13 g protein, 0 g fat (0 g sat fat), 0 mg cholesterol, 3.7 g sugars, 3.7 g carbs, 0 g fiber. Contains naturally occurring sugars.",
-      "source": "label"
-    },
-    {
-      "id": 28,
-      "name": "Continente Protein Yogurt",
+      "id": 29,
+      "name": "YoPRO Protein Yogurt Drink (Banana, 300 g)",
       "icon": "🍌",
       "nutrition": {
-        "calories_kcal": 51,
-        "protein_g": 11,
-        "fat_g": 0,
-        "sat_fat_g": 0,
+        "calories_kcal": 177,
+        "protein_g": 15.6,
+        "fat_g": 1.5,
+        "sat_fat_g": 0.5,
         "cholesterol_mg": 0,
-        "sugar_g": 7.4,
-        "carbs_g": 7.4,
+        "sugar_g": 15.5,
+        "carbs_g": 15.5,
         "fiber_g": 0
       },
-      "text": "100 g Continente Banana Protein Yogurt: 51 kcal, 11 g protein, 0 g fat (0 g sat fat), 0 mg cholesterol, 7.4 g sugars, 7.4 g carbs, 0 g fiber. Contains naturally occurring sugars.",
+      "text": "YoPRO drink, banana flavor (300 g): 177 kcal, 15.6 g protein, 1.5 g fat (0.5 g sat fat), 15.5 g carbs (15.5 g sugars).",
       "source": "label"
     }
   ],
@@ -345,6 +311,23 @@ export const menuData = {
       },
       "text": "1 12 oz flat white with almond milk.",
       "source": "estimate"
+    },
+    {
+      "id": 30,
+      "name": "YoPRO Protein Yogurt Drink (Banana, 300 g)",
+      "icon": "🍌",
+      "nutrition": {
+        "calories_kcal": 177,
+        "protein_g": 15.6,
+        "fat_g": 1.5,
+        "sat_fat_g": 0.5,
+        "cholesterol_mg": 0,
+        "sugar_g": 15.5,
+        "carbs_g": 15.5,
+        "fiber_g": 0
+      },
+      "text": "YoPRO drink, banana flavor (300 g): 177 kcal, 15.6 g protein, 1.5 g fat (0.5 g sat fat), 15.5 g carbs (15.5 g sugars).",
+      "source": "label"
     }
   ]
 };
